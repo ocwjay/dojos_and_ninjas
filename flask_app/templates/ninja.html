@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Ninja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="column">
+        <h2>New Ninja</h2>
+        <form action="/new_ninja_submission" method="post">
+            <label>
+                Dojo:
+                <select name="dojoselect" id="dojoselect" class="textbox width-fix">
+                    {% for dojo in all_dojos %}
+                        <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label>First Name:
+                <input type="text" name="fname" id="fname" class="textbox">
+            </label>
+            <label>
+                Last Name:
+                <input type="text" name="lname" id="lname" class="textbox">
+            </label>
+            <label>
+                Age:
+                <input type="number" name="age" id="age" class="textbox age_input">
+            </label>
+            <div class="btn form_btn">
+                <input type="submit" value="Create">
+            </div>
+        </form>
+        <div class="btn">
+            <a href="/">Home</a>
+        </div>
+    </div>
+</body>
+</html>
